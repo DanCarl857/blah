@@ -97,7 +97,7 @@
             </div>
         </div>
         <div class="left-nav">
-            <ul class="nav nav-pills nav-stacked margin-nav">
+        	<ul class="nav nav-pills nav-stacked margin-nav">
                 <li class="divider"></li>
                 <li><a class="black" href="#/nav/offices"><i class="icon-compass icon-large"></i>&nbsp;&nbsp;{{ 'label.anchor.navigation' | translate}}</a></li>
                 <li class="divider"></li>
@@ -124,7 +124,7 @@
             </ul>
         </div>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: #1976d2;">
-            <div class="container-fluid container">
+        	<div class="container-fluid container">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <a class="brand" href="#/home">
                         <img src="./images/MifosX_logoSmall.png" alt="Mifos X" height="20" ng-if="!isHeaderLogoPath">
@@ -162,10 +162,27 @@
                                 <li><a href="#/templates" has-permission='READ_TEMPLATE'>{{ 'label.anchor.templates' | translate }}</a></li>
                             </ul>
                         </li>
-                    </ul>
+                	</ul>
+                    <!--
                     <ul class="nav navbar-nav navbar-right" id="main-menu-right">
-                        
+                        <li class="" id="notification-icon" ng-controller="NotificationsController">
+                            <a href="#" class="dropdown-toggle" data-toggle="uib-dropdown" ng-click="fetchItemsInNotificationTray()">
+                                <span class="fa fa-bell"></span> 
+                                <span class="icon-bell"></span>
+                            </a>
+                            <div class="numberCircle" ng-hide="numberOfUnreadNotifications == 0">{{numberOfUnreadNotifications }}</div>
+                            <ul class="notification-list" ng-repeat="notification in notifications">
+                                <li ng-click="navigateToAction(notification)">
+                                    <h4>{{ notifications.content }}</h4>
+                                    <span>{{ notification.createdAt }}</span>
+                                </li>
+                            </ul>
+                            <li class="notificatiion-list-link">
+                                <a href="#/notifications">Show all notifications</a>
+                            </li>
+                        </li>
                     </ul>
+                    -->
                     <ul class="nav navbar-nav navbar-right" id="main-menu-right">
                         <li class="dropdown" id="user-menu">
                             <a id="user-dropdown" class="dropdown-toggle" data-toggle="dropdown" href="#"> {{currentSession.user.name}}<b class="caret"></b></a>
@@ -201,9 +218,9 @@
                         <div class="whitebg" ng-view></div>
                     </div>
                     <!-- Footer -->
-                    <footer>
-                        <p align="center"> <a href="https://skylabase.com" target="_blank"> Powered By Skylabase. </a> </p>
-                    </footer>
+					<footer>
+						<p align="center"> <a href="https://skylabase.com" target="_blank"> Powered By Skylabase. </a> </p>
+					</footer>
                     <hr>
                 </div> <!-- /row-fluid -->
             </div><!-- /blockui-->
